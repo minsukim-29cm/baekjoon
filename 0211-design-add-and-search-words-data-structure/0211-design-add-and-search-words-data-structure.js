@@ -33,10 +33,9 @@ WordDictionary.prototype.search = function(word) {
         const char = word[idx];
 
         if(char === '.') {
-            for (const [key, value] of Object.entries(curr.children)) {
-                if(dfs(idx + 1, curr.children[key])) {
+            for (const key in curr.children) {
+                if (dfs(idx + 1, curr.children[key])) 
                     return true;
-                }
             }
 
             return false;
